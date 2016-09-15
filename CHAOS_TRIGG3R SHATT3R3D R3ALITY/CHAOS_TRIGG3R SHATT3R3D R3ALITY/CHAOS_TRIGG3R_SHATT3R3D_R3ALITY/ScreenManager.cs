@@ -13,17 +13,17 @@ namespace CHAOS_TRIGG3R_SHATT3R3D_R3ALITY
     public class ScreenManager
     {
         #region Variables
+
+        ContentManager content;
         GameScreen currentScreen;
         GameScreen newScreen;
-
         private static ScreenManager instance;
-
         Stack<GameScreen> screenStack = new Stack<GameScreen>();
-
         Vector2 dimensions;
 
         #endregion
         #region Properties
+
         public static ScreenManager Instance
         {
             get
@@ -42,17 +42,23 @@ namespace CHAOS_TRIGG3R_SHATT3R3D_R3ALITY
         }
         #endregion
         #region Main Methods
+
         public void AddScreen(GameScreen screen)
         {
-
+            newScreen = screen;
+            screenStack.Push(screen);
+            currentScreen.UnloadContent(content);
+            currentScreen = newScreen;
+            currentScreen.LoadContent(content);
         }
         public void Initialize()
         {
-
+            currentScreen = new SplashScreen();
         }
         public void LoadContent(ContentManager Content)
         {
-
+            content = new ContentManager(Content.ServiceProvider, "Content");
+            currentScreen.LoadContent(Content);
         }
         public void Update(GameTime gameTime)
         {
@@ -60,7 +66,7 @@ namespace CHAOS_TRIGG3R_SHATT3R3D_R3ALITY
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-
+            currentScreen.Draw(spriteBatch);
         }
         #endregion
     }

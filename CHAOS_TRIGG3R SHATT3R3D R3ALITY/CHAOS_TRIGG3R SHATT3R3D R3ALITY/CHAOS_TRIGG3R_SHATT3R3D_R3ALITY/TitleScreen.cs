@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace CHAOS_TRIGG3R_SHATT3R3D_R3ALITY
 {
-    public class SplashScreen : GameScreen
+    public class TitleScreen : GameScreen
     {
         KeyboardState keyState;
         SpriteFont font;
@@ -32,9 +32,9 @@ namespace CHAOS_TRIGG3R_SHATT3R3D_R3ALITY
         public override void Update(GameTime gameTime)
         {
             keyState = Keyboard.GetState();
-            if (keyState.IsKeyDown(Keys.Z))
+            if (keyState.IsKeyDown(Keys.Enter))
             {
-                ScreenManager.Instance.AddScreen(new TitleScreen());
+                ScreenManager.Instance.AddScreen(new SplashScreen());
             }
         }
 
