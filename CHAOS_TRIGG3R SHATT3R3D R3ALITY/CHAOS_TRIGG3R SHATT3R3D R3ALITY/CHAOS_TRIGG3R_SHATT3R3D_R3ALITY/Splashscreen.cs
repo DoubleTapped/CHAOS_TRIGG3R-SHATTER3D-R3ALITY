@@ -20,7 +20,7 @@ namespace CHAOS_TRIGG3R_SHATT3R3D_R3ALITY
             base.LoadContent(Content);
             if (font == null)
             {
-                font = content.Load<SpriteFont>("SpriteFont1.spritefont");
+                font = Content.Load<SpriteFont>("SpriteFont1.spritefont");
             }
         }
 

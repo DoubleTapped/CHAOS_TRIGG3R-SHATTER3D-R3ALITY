@@ -58,6 +58,7 @@ namespace CHAOS_TRIGG3R_SHATT3R3D_R3ALITY
         public void LoadContent(ContentManager Content)
         {
             content = new ContentManager(Content.ServiceProvider, "Content");
+       
             currentScreen.LoadContent(Content);
         }
         public void Update(GameTime gameTime)

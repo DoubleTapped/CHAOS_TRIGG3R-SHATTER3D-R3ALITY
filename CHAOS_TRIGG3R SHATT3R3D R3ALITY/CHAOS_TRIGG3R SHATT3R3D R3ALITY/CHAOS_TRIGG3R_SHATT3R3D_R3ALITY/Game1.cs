@@ -18,6 +18,10 @@ namespace CHAOS_TRIGG3R_SHATT3R3D_R3ALITY
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        GameScreen gameScreen = new GameScreen();
+        ScreenManager screenManager = new ScreenManager();
+        TitleScreen titleScreen = new TitleScreen();
+        SplashScreen splashScreen = new SplashScreen();
 
         public Game1()
         {
@@ -38,11 +42,15 @@ namespace CHAOS_TRIGG3R_SHATT3R3D_R3ALITY
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            gameScreen.LoadContent(Content);
+            screenManager.LoadContent(Content);
+            titleScreen.LoadContent(Content);
+            splashScreen.LoadContent(Content);
         }
 
         protected override void UnloadContent()
         {
-            
+            base.UnloadContent();
         }
 
         protected override void Update(GameTime gameTime)
